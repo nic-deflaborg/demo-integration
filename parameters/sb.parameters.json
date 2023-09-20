@@ -1,0 +1,68 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "resourceGroupLocation": {
+        "value": "NorwayEast"
+      },
+      "env": {
+        "value": "sandbox"
+      },
+      "systemOwner": {
+        "value": "admin@corpdevlab.com"
+      },
+      "systemResp": {
+        "value": "admin@corpdevlab.com"
+      },
+      "aadLoginName": {
+        "value": "integration-sql-admin-dev"
+      },
+      "aadLoginSid": {
+        "value": "ed7b8433xx-f20xxx-4d4sswsw9-82sw-93xxxxacad48"
+      },
+      "vnetName": {
+        "value": "vNet-SB-NE"
+      },
+      "aseSubnetName": {
+        "value": "sNet-SB-AS-NE"
+      },
+      "appServiceNames": {
+        "value": [
+          "calendar",
+          "addtoqueue",
+          "custom",
+          "filenetfondintegration",
+          "filenet",
+          "service",
+          "chat",
+          "deleteengine",
+          "integration",
+          "fundsaccess",
+          "fundsintegration",
+          "antihvitvaskingapi",
+          "antihvitvasking",
+          "aml",
+          "sendsms"
+        ]
+      },
+      "queueNames": {
+        "value": [
+          "queue"
+        ]
+      },
+      "crmSecretNames": {
+        "value": [
+          "url",
+          "password",
+          "username",
+          "password"
+        ]
+      },
+      "vnetRg": {
+        "value": "RG-Network"
+      },
+      "IPWhitelist": {
+        "value": "195.204.62.2/32"
+      }
+    }
+  }  
