@@ -42,8 +42,8 @@ param logAnalyticsId string
 param subnetRef string
 
 //Variables
-var sqlAdminlogin = 'user${uniqueString(resourceGroup().id)}' // Using AAD auth, so creating random user
-var sqlAdminPassword = 'p@!!${uniqueString(resourceGroup().id)}' // Using AAD auth, so creating random password
+//var sqlAdminlogin = 'user${uniqueString(resourceGroup().id)}' // Using AAD auth, so creating random user
+//var sqlAdminPassword = 'p@!!${uniqueString(resourceGroup().id)}' // Using AAD auth, so creating random password
 
 // Resources
 resource sqlServer 'Microsoft.Sql/servers@2021-08-01-preview' = {
@@ -65,8 +65,8 @@ resource sqlServer 'Microsoft.Sql/servers@2021-08-01-preview' = {
       sid: aadLoginSid
       tenantId: subscription().tenantId
     }
-    administratorLogin: sqlAdminlogin
-    administratorLoginPassword: sqlAdminPassword
+    administratorLogin: 'admin'
+    administratorLoginPassword: 'P@ssw0rd123'
     minimalTlsVersion: minTlsVersion
     publicNetworkAccess: publicNetworkAccess
   }
@@ -87,7 +87,8 @@ resource sqlServer 'Microsoft.Sql/servers@2021-08-01-preview' = {
 }
 
 resource sqlDatabase 'Microsoft.Sql/servers/databases@2021-08-01-preview' = {
-  name:  '${sqlServer.name}/${dbname}'
+  parent: sqlServer
+  name:  dbname
   location: location
   sku: {
     name: sku

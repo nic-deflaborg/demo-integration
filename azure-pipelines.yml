@@ -6,7 +6,7 @@ name: Deploy Azure integration platform
 variables:
   vmImageName: 'ubuntu-latest'
   azureServiceConnection: 'Azure Sandbox'
-  aseResourceGroupName: 'RG-ase'
+  aseResourceGroupName: 'ase-rg'
   location: 'norwayeast'
 
 stages:
