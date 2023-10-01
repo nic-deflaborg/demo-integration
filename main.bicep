@@ -154,8 +154,8 @@ resource labFunctionAppSettings 'Microsoft.Web/sites/config@2021-03-01' = {
   properties: {
     APPINSIGHTS_INSTRUMENTATIONKEY: labFunctionApp.outputs.instrumentationKey
     FUNCTIONS_EXTENSION_VERSION: '~3'
-    twiliousername: '@Microsoft.KeyVault(SecretUri=https://${keyVaultResourceName}${environment().suffixes.keyvaultDns}/secrets/twiliousername/)'
-    twiliopassword: '@Microsoft.KeyVault(SecretUri=https://${keyVaultResourceName}${environment().suffixes.keyvaultDns}/secrets/twiliopassword/)'
+    labappusername: 'admin'
+    labappassword: 'P@ssword123'
   }
   dependsOn: [
     labKeyVault
