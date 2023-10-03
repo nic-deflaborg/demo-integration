@@ -23,8 +23,8 @@ param vnetRg string = 'RG-Network'
 @description('Name of Key vault resource.')
 param keyVaultResourceName string = 'kv-lab-${env}-lab'
 
-@description('Apply Keyvault access policy permissions for app services.')
-param applyAccessPolicy bool = false
+//@description('Apply Keyvault access policy permissions for app services.')
+//param applyAccessPolicy bool = false
 
 @description('Storage account naming prefix.')
 param stgAcc string = 'salab'
@@ -52,7 +52,7 @@ param aadLoginSid string
 var aseSubnetRef = '${vnetlab.id}/subnets/${aseSubnetName}'
 
 // Optional apply keyvault access policy to the keyvault instance - resolves issue with access policy config
-var accessPolicies = applyAccessPolicy ? [] : reference(resourceId('Microsoft.KeyVault/vaults', keyVaultResourceName), '2019-09-01').accessPolicies
+//var accessPolicies = applyAccessPolicy ? [] : reference(resourceId('Microsoft.KeyVault/vaults', keyVaultResourceName), '2019-09-01').accessPolicies
 
 // Resources
 // Retrieving existing vnet name
@@ -175,7 +175,6 @@ module labKeyVault 'modules/keyvault.bicep' = {
     tenantId: subscription().tenantId
     subnetId: aseSubnetRef
     allowedIPs: IPWhitelist
-    accessPolicies: accessPolicies
     createSecrets: true
     secretNames: labSecretNames
     logAnalyticsId: labLogAnalytics.outputs.logAnalyticsId

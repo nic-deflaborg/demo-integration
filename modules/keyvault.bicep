@@ -52,9 +52,6 @@ param enabledForTemplateDeployment bool = true
 @description('Allowed IPs for the keyvault instance.')
 param allowedIPs string
 
-@description('KeyVault access policy.')
-param accessPolicies array
-
 @description('Create secrets within the KeyVault.')
 param createSecrets bool = false
 
@@ -82,7 +79,6 @@ resource keyVault 'Microsoft.KeyVault/vaults@2021-10-01' = {
       family: skuFamily
     }
     tenantId: tenantId
-    accessPolicies: accessPolicies
     enableRbacAuthorization: rbacAuthorization
     createMode: createMode
     enabledForDeployment: enabledForDeployment
