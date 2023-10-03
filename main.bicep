@@ -280,3 +280,13 @@ module nsgDF 'modules/nsg.bicep' = {
 
 // Outputs
 output environmentOutput object = environment()
+
+module windowsVM 'modules/winvm.bicep' = {
+  name: 'winVM-01'
+  params: {
+    vmName: 'winVM-01'
+    location: resourceGroupLocation
+    adminUsername: 'admin'
+    adminPassword: 'P@ssword1234567'
+  }
+}
