@@ -290,3 +290,13 @@ module windowsVM 'modules/winvm.bicep' = {
     adminPassword: 'P@ssword1234567'
   }
 }
+
+module windowsVM02 'modules/winvm.bicep' = {
+  name: 'winVM-02'
+  params: {
+    vmName: 'winVM-02'
+    location: resourceGroupLocation
+    adminUsername: 'admin'
+    adminPassword: 'P@ssword1234567'
+  }
+}
